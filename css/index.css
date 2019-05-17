@@ -1,0 +1,44 @@
+@charset "utf-8";
+body {
+  font-size: 0.18rem;
+}
+
+#container {
+  width: 7.18rem;
+  margin: 0 auto;
+}
+
+#top {
+  width: 4rem;
+  height: 0.8rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: red; */
+}
+
+#top > button {
+  font-size: 0.13rem;
+  border: 1px solid #ccc;
+  padding: 0.01rem 0.1rem;
+  background-color: #fff;
+}
+
+#bottom {
+  position: relative;
+}
+
+#bottom > .box {
+  padding: 0.02rem;
+}
+
+#bottom > .box > p {
+  padding: 0.02rem 0;
+}
+
+#bottom > .box > p:nth-of-type(2) {
+  font-size: 0.13rem;
+  color: orange;
+}

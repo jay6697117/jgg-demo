@@ -28,7 +28,7 @@
     let p2Height = parseFloat(
       window.getComputedStyle(document.querySelector('#bottom > .box > p:nth-of-type(2)')).height
     ); //在函数外申明为了方便调用
-    //初始化两列
+    //初始化三列
     jgg(3);
     // 遍历所有按钮监听点击事件
     for (let j = 2; j < btns.length + 2; j++) {

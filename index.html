@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/common.css" />
     <script src="./js/fontSize.js"></script>
+
     <style type="text/css">
       body {
         font-size: 0.18rem;
@@ -64,86 +65,6 @@
       </div>
       <div id="bottom"></div>
     </div>
-
-    <script type="text/javascript">
-      //限制导入图片数目
-      var imgNum = 30;
-      //创造两个数组
-      let arr1 = [];
-      for (let index = 0; index < imgNum; index++) {
-        const elem = `因为遇见你${index + 1}`;
-        arr1.push(elem);
-      }
-
-      let arr2 = [];
-      for (let index = 0; index < imgNum; index++) {
-        const elem = `孙怡邓伦牵手演绎刺绣奇缘${index + 1}`;
-        arr2.push(elem);
-      }
-
-      // 获取需要的标签
-      let btns = document.getElementById('top').children; //全部按钮
-      let boxs = document.getElementById('bottom').children; //全部box盒子
-
-      // 加载所需节点
-      loadNodes(imgNum);
-
-      //init初始化两列
-      jgg(2);
-
-      // 监听按钮的点击
-      for (let j = 0; j < btns.length; j++) {
-        const btn = btns[j];
-        btn.onclick = function() {
-          jgg(j + 2);
-          jgg(j + 2);
-        };
-      }
-
-      function jgg(cols) {
-        // 定义变量
-        let containerWidth = parseFloat(document.getElementById('container').clientWidth); //获取容器宽度
-        let boxPadding = parseFloat(window.getComputedStyle(document.querySelector('#bottom > .box')).padding); //box内边距
-        let p1Height = parseFloat(
-          window.getComputedStyle(document.querySelector('#bottom > .box > p:nth-of-type(1)')).height
-        );
-        let p2Height = parseFloat(
-          window.getComputedStyle(document.querySelector('#bottom > .box > p:nth-of-type(2)')).height
-        );
-
-        let boxWidth = containerWidth / cols; //这里单位是px像素
-        let imgWidth = boxWidth - boxPadding * 2; //这里单位是px像素
-        let imgHeight = (308 / 220) * imgWidth; //这里单位是px像素
-        let boxHeight = imgHeight + p1Height + p2Height + boxPadding * 2; //这里单位是px像素
-        // 2.2 遍历
-        for (let i = 0; i < boxs.length; i++) {
-          // 2.2.1 求出当前盒子所在的行和列
-          let rowNum = parseInt(i / cols);
-          let colNum = parseInt(i % cols);
-          console.log(`当前盒子在第${rowNum + 1}行, 第${colNum + 1}列`);
-          const box = boxs[i];
-          const img = boxs[i].getElementsByTagName('img')[0];
-
-          box.style.position = 'absolute';
-          box.style.width = boxWidth / 100 + 'rem'; //转换成rem
-          box.style.height = boxHeight / 100 + 'rem'; //转换成rem
-          img.style.width = imgWidth / 100 + 'rem'; //转换成rem
-          img.style.height = imgHeight / 100 + 'rem'; //转换成rem
-          box.style.left = colNum * (boxWidth / 100) + 'rem';
-          box.style.top = rowNum * (boxHeight / 100) + 'rem';
-        }
-      }
-
-      function loadNodes(num) {
-        //加载节点
-        for (let i = 0; i < num; i++) {
-          let bottom = document.getElementById('bottom');
-          let div = document.createElement('div');
-          div.className = 'box'; //div加class
-          div.innerHTML = `<img src="img/${i + 1}.jpg" alt="" /><p>${arr1[i]}</p><p>${arr2[i]}</p>`;
-          bottom.appendChild(div);
-        }
-      }
-    </script>
+    <script type="text/javascript" src="./js/index.js"></script>
   </body>
 </html>

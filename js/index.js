@@ -23,11 +23,11 @@
     //载入图片和文字节点的开关
     loadNodes(imgNum);
     let p1Height = parseFloat(
-      window.getComputedStyle(document.querySelector('#bottom > .box > p:nth-of-type(1)')).height
-    ); //在函数外申明为了方便调用
+      window.getComputedStyle(document.querySelectorAll('#bottom > .box > p:nth-of-type(1)')[imgNum - 1]).height
+    ); //在函数外申明为了方便调用 建议遍历所有的盒子里面的p1取他们高度的最大值
     let p2Height = parseFloat(
-      window.getComputedStyle(document.querySelector('#bottom > .box > p:nth-of-type(2)')).height
-    ); //在函数外申明为了方便调用
+      window.getComputedStyle(document.querySelectorAll('#bottom > .box > p:nth-of-type(2)')[imgNum - 1]).height
+    ); //在函数外申明为了方便调用 建议遍历所有的盒子里面的p2取他们高度的最大值
     //初始化三列
     jgg(3);
     // 遍历所有按钮监听点击事件
@@ -36,11 +36,11 @@
       btn.onclick = function() {
         jgg(j);
         p1Height = parseFloat(
-          window.getComputedStyle(document.querySelector('#bottom > .box > p:nth-of-type(1)')).height
-        );
+          window.getComputedStyle(document.querySelectorAll('#bottom > .box > p:nth-of-type(1)')[imgNum - 1]).height
+        ); //获取了最后一个盒子里面p1的高度(最后一个一定是最长的，同时也是高度最高的)
         p2Height = parseFloat(
-          window.getComputedStyle(document.querySelector('#bottom > .box > p:nth-of-type(2)')).height
-        );
+          window.getComputedStyle(document.querySelectorAll('#bottom > .box > p:nth-of-type(2)')[imgNum - 1]).height
+        ); //获取了最后一个盒子里面p2的高度(最后一个一定是最长的，同时也是高度最高的)
         jgg(j);
       };
     }
